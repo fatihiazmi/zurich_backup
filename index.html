@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zurich</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: "Ogg-Regular";
+        src: url("assets/fonts/Ogg-Regular.woff") format("woff"),
+          url("assets/fonts/Ogg-Regular.woff2") format("woff2"),
+          url("assets/fonts/Ogg-Regular?#iefix") format("embedded-opentype");
+      }
+
+      @font-face {
+        font-family: "ZurichSans-Bold";
+        src: url("assets/fonts/ZurichSans-Bold.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "ZurichSans-Medium";
+        src: url("assets/fonts/ZurichSans-Medium.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "ZurichSans-Regular";
+        src: url("assets/fonts/ZurichSans-Regular.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "ZurichSans-Light";
+        src: url("assets/fonts/ZurichSans-Light.woff") format("woff");
+      }
+      .ogg {
+        font-family: "Ogg-Regular", serif;
+      }
+
+      .z-light {
+        font-family: "ZurichSans-Light", sans-serif;
+      }
+
+      .z-medium {
+        font-family: "ZurichSans-Medium", sans-serif;
+      }
+
+      .z-bold {
+        font-family: "ZurichSans-Bold", sans-serif;
+      }
+      #slider-section {
+        background-color: #5495cf;
+        color: #dde4e3;
+        font-family: "ZurichSans-Regular", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #slider-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #header-container {
+        max-width: 600px;
+        margin-top: 2rem;
+      }
+      #headline,
+      #subheadline {
+        font-size: 2.5rem;
+      }
+      #headline{
+        max-width: 240px;
+      }
+      #subheadline{
+        max-width: 260px;
+        line-height: 3rem;
+        margin: 0.2rem 0;
+      }
+      #disclaimer{
+        max-width: 300px;
+        margin-top: 2rem;
+      }
+      .circle-full {
+        background-image: linear-gradient(180deg, transparent 50%, #2167ae 50%),
+          linear-gradient(180deg, #2167ae 50%, transparent 50%);
+      }
+
+      .circle-three-quarter {
+        background-image: linear-gradient(180deg, transparent 50%, #2167ae 50%),
+          linear-gradient(90deg, #2167ae 50%, transparent 50%);
+      }
+
+      .circle-half {
+        background-image: linear-gradient(180deg, transparent 50%, #2167ae 50%),
+          linear-gradient(0deg, #2167ae 50%, transparent 50%);
+      }
+      #circle-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 18rem;
+        height: 18rem;
+        border-radius: 50%;
+        margin: auto;
+      }
+      #circle-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.5rem;
+      }
+      #circle-text {
+        color: #eceeef;
+        font-size: 1.8rem;
+      }
+      #circle-subtext {
+        color: #dad2bd;
+        font-size: 1.25rem;
+        text-align: center;
+        max-width: 10rem;
+      }
+      #car-image {
+        width: 12rem;
+        margin-top: 2.5rem;
+      }
+      #slider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+      #slider img {
+        width: 125%;
+        max-width: 500px;
+        position: relative;
+        left: -1rem;
+      }
+      #slider-range {
+        position: absolute;
+        top: 1rem;
+        width: 90%;
+        max-width: 420px;
+      }
+      #pointer {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 3rem;
+        font-size: 0.8rem;
+        width: 90%;
+        max-width: 420px;
+      }
+      #quote-btn {
+        display: flex;
+        justify-content: center;
+      }
+      #quote-btn a button {
+        background-color: #23366f;
+        font-size: 1.25rem;
+        border: none;
+        color: #dde4e3;
+        border-radius: 34px;
+        margin: 4rem 0;
+        padding: 0.85rem 1rem;
+      }
+      #slider-range{
+        -webkit-appearance: none;
+        appearance: none;
+        background: url('assets/slider.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+      }
+      #slider-range::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 23px;
+        height: 24px;
+        background: url('assets/slider-handle.png');
+        background-size: cover;
+        cursor: pointer;
+      }
+      #slider-range::-moz-range-thumb{
+        width: 23px;
+        height: 24px;
+        background: url('assets/slider-handle.png');
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="slider-section">
+      <div id="slider-container">
+        <div id="header-container">
+          <h3 id="headline">Toggle the milage bar to see how you</h3>
+          <h3 id="subheadline" class="ogg">pay less when you drive less</h3>
+          <p id="disclaimer" class="z-light">
+            *Savings are calculated in comparison to Z-Driver Car Takaful annual
+            contributions totalling RM965 based on a customer profile in 2024.
+          </p>
+        </div>
+        <div id="circle-container" class="circle-half">
+          <div id="circle-items">
+            <h5 class="ogg" id="circle-text">Z-Miles</h5>
+            <p id="circle-subtext">You save RM495/year*</p>
+            <img id="car-image" src="assets/car.png" alt="car" />
+          </div>
+        </div>
+        <div id="slider">
+          <img src="assets/semicircle.png" alt="semicircle" />
+          <input id="slider-range" type="range" min="1" max="3" value="1" />
+          <div id="pointer">
+            <p>12,000KM</p>
+            <p>6,000KM</p>
+            <p>3,000KM</p>
+          </div>
+        </div>
+        <div id="quote-btn">
+          <a href="https://www.google.com">
+            <button>Get a quote now</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const slider = document.getElementById("slider-range");
+      const circle = document.getElementById("circle-container");
+      const savings = circle.querySelector("p");
+
+      slider.addEventListener("input", () => {
+        const value = slider.value;
+        let text, className;
+
+        switch (value) {
+          case "1":
+            text = "99";
+            className = "half";
+            break;
+          case "2":
+            text = "363";
+            className = "three-quarter";
+            break;
+          case "3":
+            text = "495";
+            className = "full";
+            break;
+          default:
+            break;
+        }
+
+        savings.textContent = `RM${text}/year*`;
+        circle.className = `circle-${className}`;
+      });
+    </script>
+  </body>
+</html>
