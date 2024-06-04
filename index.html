@@ -63,9 +63,8 @@
       #slider-container {
         width: 90%;
         margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        justify-items: center;
       }
       #header-container {
         max-width: 600px;
@@ -75,15 +74,15 @@
       #subheadline {
         font-size: 2.5rem;
       }
-      #headline{
+      #headline {
         max-width: 240px;
       }
-      #subheadline{
+      #subheadline {
         max-width: 260px;
         line-height: 3rem;
         margin: 0.2rem 0;
       }
-      #disclaimer{
+      #disclaimer {
         max-width: 300px;
         margin-top: 2rem;
       }
@@ -102,6 +101,7 @@
           linear-gradient(0deg, #2167ae 50%, transparent 50%);
       }
       #circle-container {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -111,10 +111,12 @@
         margin: auto;
       }
       #circle-items {
+        position: absolute;
+        top: 1.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 1.5rem;
+        margin: auto;
       }
       #circle-text {
         color: #eceeef;
@@ -170,29 +172,168 @@
         margin: 4rem 0;
         padding: 0.85rem 1rem;
       }
-      #slider-range{
+      #slider-range {
         -webkit-appearance: none;
         appearance: none;
-        background: url('assets/slider.png');
+        background: url("assets/slider.png");
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center;
         cursor: pointer;
       }
-      #slider-range::-webkit-slider-thumb{
+      #slider-range::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
         width: 23px;
         height: 24px;
-        background: url('assets/slider-handle.png');
+        background: url("assets/slider-handle.png");
         background-size: cover;
         cursor: pointer;
       }
-      #slider-range::-moz-range-thumb{
+      #slider-range::-moz-range-thumb {
         width: 23px;
         height: 24px;
-        background: url('assets/slider-handle.png');
+        background: url("assets/slider-handle.png");
         cursor: pointer;
+      }
+      @media (min-width: 728px) {
+        #headline,
+        #subheadline {
+          font-size: 4rem;
+        }
+        #headline {
+          max-width: 450px;
+        }
+        #subheadline {
+          max-width: 470px;
+          line-height: 4rem;
+        }
+        #disclaimer {
+          font-size: 1.25rem;
+          max-width: 370px;
+          margin-top: 3rem;
+        }
+        #circle-container {
+          width: 30rem;
+          height: 30rem;
+        }
+        #circle-items{
+          top: 5rem;
+        }
+        #circle-text {
+          font-size: 3rem;
+        }
+        #circle-subtext {
+          font-size: 1.75rem;
+          margin-top: 1rem;
+        }
+        #slider img {
+          max-width: 600px;
+        }
+        #slider-range {
+          max-width: 480px;
+        }
+        #pointer {
+          max-width: 480px;
+          font-size: 1.5rem;
+        }
+        #quote-btn a button {
+          font-size: 1.75rem;
+          padding: 1.85rem 2rem;
+          border-radius: 46px;
+        }
+      }
+      @media (min-width: 1024px) {
+        #slider-container {
+          display: grid;
+          justify-items: start;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 0px;
+          grid-row-gap: 0px;
+          margin-top: 3rem;
+        }
+        #circle-container {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        #header-container {
+          grid-area: 1 / 2 / 2 / 3;
+          margin-top: 10rem;
+          margin-left: 5rem;
+        }
+        #slider {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        #slider img {
+          max-width: 600px;
+        }
+        #slider-range {
+          max-width: 400px;
+        }
+        #pointer {
+          max-width: 415px;
+          font-size: 1rem;
+        }
+        #headline {
+          font-size: 2rem;
+          max-width: 320px;
+        }
+        #subheadline {
+          max-width: 380px;
+          font-size: 2.8rem;
+        }
+        #disclaimer {
+          font-size: 0.75rem;
+          max-width: 280px;
+        }
+        #quote-btn {
+          grid-area: 2 / 2 / 3 / 3;
+        }
+        #quote-btn a button {
+          font-size: 1.25rem;
+          padding: 1rem;
+          margin-left: 5rem;
+        }
+      }
+      @media (min-width: 1360px) {
+        #slider img {
+          max-width: 750px;
+          left: -2rem;
+        }
+        #headline {
+          max-width: 470px;
+          font-size: 2.7rem;
+        }
+
+        #subheadline {
+          font-size: 3.5rem;
+        }
+
+        #disclaimer {
+          font-size: 1.25rem;
+          max-width: 470px;
+        }
+        #slider-range {
+          max-width: 550px;
+        }
+        #pointer {
+          max-width: 550px;
+        }
+      }
+      @media (min-width: 1700px) {
+        #slider {
+          left: 2rem;
+        }
+      }
+      @media (min-width: 1800px) {
+        #slider img {
+          max-width: 750px;
+          left: 0rem;
+        }
+        #slider-range,
+        #pointer {
+          left: 8rem;
+        }
       }
     </style>
   </head>
@@ -207,7 +348,8 @@
             contributions totalling RM965 based on a customer profile in 2024.
           </p>
         </div>
-        <div id="circle-container" class="circle-half">
+        <div id="circle-container">
+          <canvas id="circleCanvas" style="transform: rotate(90deg);"></canvas>
           <div id="circle-items">
             <h5 class="ogg" id="circle-text">Z-Miles</h5>
             <p id="circle-subtext">You save RM495/year*</p>
@@ -225,41 +367,64 @@
         </div>
         <div id="quote-btn">
           <a href="https://www.google.com">
-            <button>Get a quote now</button>
+            <button class="z-medium">Get a quote now</button>
           </a>
         </div>
       </div>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       const slider = document.getElementById("slider-range");
       const circle = document.getElementById("circle-container");
       const savings = circle.querySelector("p");
+      const canvas = document.getElementById("circleCanvas");
+
+      
+      const circleChart = new Chart(canvas, {
+        type: "pie",
+        options: {
+          plugins: {tooltip: false},
+          hover: {mode: null}
+        },
+        data: {
+          datasets: [
+            {
+              data: [150, 150],
+              backgroundColor: ["#2167ae", "transparent"],
+              borderColor: 'transparent'
+            },
+          ],
+        },
+      });
 
       slider.addEventListener("input", () => {
         const value = slider.value;
-        let text, className;
+        let text, className, data;
 
         switch (value) {
           case "1":
             text = "99";
-            className = "half";
+            data = [150, 150];
             break;
           case "2":
             text = "363";
-            className = "three-quarter";
+            data = [144, 48];
             break;
           case "3":
             text = "495";
-            className = "full";
+            data = [150, 0];
             break;
           default:
             break;
         }
 
-        savings.textContent = `RM${text}/year*`;
-        circle.className = `circle-${className}`;
+        savings.textContent = `You save RM${text}/year*`;
+        circleChart.data.datasets[0].data = data
+
+        circleChart.update()
+        
       });
+
     </script>
   </body>
 </html>
